@@ -242,19 +242,29 @@ public class Containers {
         // Imprimeix aquest conjunt
 
         // Treu el valor de la clau "PEUGEOT" i imprimeix-ho
-        for (int i = 0; i < map.size(); i++) {
-            if (map.keySet().equals("PEUFEOT")){
-
-            }
-        }
+        System.out.println(map.get("PEUGEOT"));
 
         // Mitjançant un iterador, imprimeix tots els parells clau-valor del mapa
-
+            Iterator<String> it= map.keySet().iterator();
+            while (it.hasNext()){
+                System.out.println(it.next());
+            }
 
         // Empra un mapa que associi un caràcter a un número enter per dur el compte
         // de quantes vegades surt cada lletra a la paraula "ESTERNOCLEIDOMASTOIDEO"
-
-
+            Map<Character,Integer> cantidadLetras=new HashMap<>();
+            String palabra= "ESTERNOCLEIDOMASTOIDEO";
+        for (int i = 0; i < palabra.length(); i++) {
+            char c= palabra.charAt(i);
+            if (cantidadLetras.containsKey(c)){
+                int valor=cantidadLetras.get(c);
+                valor=valor+1;
+                cantidadLetras.put(c,valor);
+            }else {
+                cantidadLetras.put(c,1);
+            }
+        }
+        System.out.println(cantidadLetras);
     }
 }
 
